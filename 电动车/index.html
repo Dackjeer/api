@@ -1,0 +1,534 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>起始页</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css"/>       <!--外部样式表-->
+    <link rel="stylesheet" type="text/css" href="./css/common.css"/>
+
+    <style>
+        /* 头部样式 */
+        #firstHeader {background-color:  #3DA3FD;}
+        #secHeader   {background-color:  #3DA3FD;}
+        #thridHeader {background-color:  #3DA3FD;}
+        #fourthHeader{background-color:  #3DA3FD;}           /*添加的一个标签*/
+        #fifthHeader {background-color:  #3DA3FD;}
+        .topbar {height:50px;border-bottom: 1px solid #DDDFE3;}/*#DDDFE3*/
+        .fr{float: right;}
+        .fl{float: left;}
+        .pa{position: absolute;}
+        img {vertical-align: top;}
+
+        /*第一头部*/
+        .egret-header-box {height: 50px;}
+        .egret-img img {height: 30px;padding: 10px;}
+        .egret-header-search {background-color: #fff; position: absolute; left: 60px;
+            right: 20px; height: 34px; margin-top: 8px;border-radius: 4px;}
+        .egret-header-search img {margin-left: 2px; height: 20px; margin-top: 7px;}
+        .egret-header-search input {line-height: 24px;font-size: 14px;padding-top: 5px;}
+        .egret-header-search input:focus {/*border:0;*/ outline:none;}
+
+        /* 第二头部 */
+        .header-text-left {line-height: 50px;color: #fff;font-size: 16px;padding: 0 10px;}
+        .header-text-right {line-height: 50px;color: #fff;font-size: 16px;padding-right:10px;}
+        .egret-header-title {position: absolute;width: 99%;text-align: center;line-height: 50px;color: #fff;font-size: 20px;}
+
+
+        /* 第三头部 */
+        .service-header {    /*字体样式*/
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            color: #FFFFFF;
+        }
+        .btn_right{/*扫描样式*/
+           background: url("./image/frame_3/weixin_scan.png") center no-repeat ;
+            background-size: 39px 39px;
+            height: 48px;
+            width: 42px;
+        }
+
+        /*第四部分头部样式*/
+        /*.header-box {height: 50px;}*/
+        .header-box span{
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            margin-left: 10px;
+            color: #FFFFFF;
+        }        /*商城主题字体样式*/
+
+        /*第五部分*/
+        .header-title—fifth {/*position: absolute;*/width: 99%;text-align: center;line-height: 50px;color: #fff;font-size: 20px;}
+        .topbar1 {height:50px;border-bottom: 1px solid #DDDFE3;}/*#DDDFE3*/
+
+        /*搜索条样式*/
+        .header-search {background-color: #fff;  position: absolute;  left: 60px; /*搜索框距离右边的距离*/
+            right: 120px;/*搜索框距离右边的距离*/
+            height: 34px;  margin-top: 8px;
+            border-radius: 50px;/*圆的半径*/
+        }
+
+        .header-search input {  line-height: 24px;font-size: 14px;padding-top: 5px; margin-left: 20px}  /*搜索框内容的样式*/
+        .header-search input:focus {/*border:0;*/ outline:none;}/*搜索框边框的样式*/
+        .user{  margin-top: 0px;  margin-right: 6px;  background-size: 24px 24px;  }
+        .cart{  margin-top: 0px;  margin-right: 6px;  background-size: 24px 24px;  }
+
+        /* 头部切换样式 */
+        .titlebar {display: none;}
+        .activebar {display: block;}
+
+        /* 底部切换按钮样式 */
+        ul {
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;/*弹性布局*/
+            display: flex;
+        }
+        #footer {
+            height: 51px; /*line-height: 50px;*/
+            background-color: ghostwhite;
+            border-top: 1px solid ghostwhite;/*底部导航切换按钮的背景色 */
+        }
+        #footer li{
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex:1; /*height: 40px*/;
+        }
+
+        /* 选项卡样式 */
+        .scrollbar {
+            display: -webkit-box;display: -webkit-flex;
+            text-align: center; height: 40px; line-height: 40px;
+            background: red;font-size: 12px;position: relative;
+        }
+
+        /*底部导航按钮的图标*/
+        .bbtn01 {background: url(./image/bottom/bottombtn0101.png) no-repeat center 4px; }/*背景图*/
+        .bbtn02 {background: url(./image/bottom/bottombtn0201.png) no-repeat center 4px; }
+        .bbtn03 {background: url(./image/bottom/bottombtn0301.png) no-repeat center 4px; }
+        .bbtn04 {background: url(./image/bottom/bottom_cart_1.png) no-repeat center 4px; }
+        .bbtn05 {background: url(./image/bottom/main_index.png) no-repeat center 4px;}
+        .bottom_btn {width: 99%;padding-top: 21px;background-position-y: 4px; background-size: 24px;  font-size: 10px; color: gray;}
+
+        /* 底部按钮激活样式 */
+        .activebtn0 {background: url(./image/bottom/bottombtn0102.png) no-repeat center 4px; }
+        .activebtn1 {background: url(./image/bottom/bottombtn0202.png) no-repeat center 4px; }
+        .activebtn2 {background: url(./image/bottom/bottombtn0302.png) no-repeat center 4px; }
+        .activebtn3 {background: url(./image/bottom/bottom_cart_2.png) no-repeat center 4px; }
+        .activebtn4 {background: url(./image/bottom/my_user_2.png) no-repeat center 4px; }
+        .activebtn {
+            color:orangered/*点击按钮后，字体的颜色*/;
+            background-size: 24px;
+            background-color: ghostwhite;/*激活按钮的颜色样式*/
+        }
+
+        /* 本地刷新图标   */
+        #localrefresh {  display:none;  float: right;  width: 40px;  padding: 5px 10px; }
+
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <!-- 第一头部 -->
+    <div id="firstHeader" class="titlebar activebar">
+        <div class="egret-header topbar normalHeader">
+            <div class="egret-header-box egret-img fl" onclick="openfindmusic()">
+                <img src="./image/frame_1/cm2_toptab_mike.png" alt="">
+            </div>
+            <div class="egret-header-box">
+                <div class="egret-header-search">
+                    <img src="./image/frame_1/header_search.png" alt="">    <!--注意图片的输入路径-->
+                    <input type="text" placeholder="附近的车友、商店、便车">   <!--默认提示输入的内容，不超过12个字-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第二头部  通讯录 -->
+    <div id="secHeader" class="titlebar">
+        <div class="egret-header topbar">
+            <div class="egret-header-title">通讯录</div>
+            <div class="header-text-left fl pa" onclick="openframe02more ()">更多</div>  <!--通过点击更多按钮，实现添加的功能-->
+            <div class="header-text-right fr" onclick="addFriend()">添加</div>
+        </div>
+    </div>
+
+    <!-- 第三头部  服务-->
+    <div id="thridHeader" class="titlebar ">
+        <div class="service-header topbar">服务中心
+            <div class="btn_right fr" tapmode="tap-active" onclick="openScanner();"></div>
+        </div>
+    </div>
+
+    <!-- 第四部分头部  商城-->
+    <div id="fourthHeader" class="titlebar">
+        <div class="egret-header topbar normalHeader">
+            <div class="header-box fl" onclick="store()">      <!--进入商城-->
+                <span>商城</span>
+            </div>
+            <div class="header-search">
+                <input type="text" placeholder="搜索你心爱的车型">        <!--默认提示输入的内容，不超过12个字-->
+            </div>
+
+            <div class="header user fr" tapmode="" onclick="openUser()"><!--点击到登录窗口-->
+                <img src="./image/frame_1/login_account@2.png" alt="">
+            </div>
+
+            <div class="header cart fr" tapmode="" onclick="shopping()"><!--进入购物车-->
+                <img src="./image/frame_1/cart_1.png" alt="">
+            </div>
+        </div>
+    </div>
+
+        <!-- 第五头部  我的 -->
+    <div id="fifthHeader" class="titlebar  ">
+        <div class="topbar ">
+            <div class="header-title—fifth">我的</div>
+        </div>
+    </div>
+
+    <div id="main"></div>
+
+    <div id="footer">     <!--底部布局-->                                                 <!--switchframe为跳转其他页面的入口-->
+        <ul>
+            <li tapmode="active_btn0" onclick="switchframe('first_frame')"><!--点击首页按钮跳转到首页的html-->
+                <a class="bottom_btn bbtn01 activebtn">首页</a>             <!--bottom_btn bbtn01 activebtn 分别对应三个标签的样式-->
+            </li>
+
+            <li tapmode="active_btn1" onclick="switchframe('second_frame')"><!--点击通讯录按钮跳转到通讯录的html-->
+                <a class="bottom_btn bbtn02 activebtn">通讯录</a>
+            </li>
+
+            <li tapmode="active_btn2" onclick="switchframe('third_frame')"><!--点击发现按钮跳转到服务的html-->
+                <a class="bottom_btn bbtn03 activebtn">服务</a>
+            </li>
+            
+            <li tapmode="active_btn3" onclick="switchframe('fourth_frame')"><!--点击发现按钮跳转到商城的html-->
+                <a class="bottom_btn bbtn04 activebtn">商城</a>
+            </li>
+            
+            <li tapmode="active_btn4" onclick="switchframe('fifth_frame')"><!--点击我的按钮跳转到我的 的html-->
+                <a class="bottom_btn bbtn05 activebtn">我的</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript">
+    var firstHeader = $api.byId('firstHeader');
+    var secHeader = $api.byId('secHeader');
+    var thirdHeader = $api.byId('thridHeader');
+    var fourthHeader = $api.byId('fourthHeader');                           //定义第四个API的byid
+    var fifthHeader = $api.byId('fifthHeader');
+
+    var firstHeaderOffset;
+    var firstHeaderIndexHeight;
+
+    var main      = $api.byId('main');
+    var mainPos   = $api.offset(main);
+
+    var footer    = $api.byId('footer');
+    var footerPos = $api.offset(footer);
+
+    var isFirstOpen = false;
+    var isSecondOpen = false;
+    var isThirdOpen = false;
+    var isFourthOpen = false;
+    var isFifthOpen = false;
+
+    function emptyopt() {}
+
+    function openNewWindow(type) {     //定义打开新的窗口方法
+        api.openWin({
+            name: type,
+            url: './html/' + type + '.html',//打开新的窗口
+            pageParam: {},
+            bounces: false,
+            opaque: false
+        });
+    }
+    //    function openSearch() {//定义在第一个页面打开搜索的方法
+    //        api.openWin({
+    //            name: 'search',
+    //            url: './html/search.html',//打开搜索窗口
+    //            bounces: false,
+    //            delay: 200
+    //        });
+    //    }
+    //    function openfindmusic () {
+    //        api.openWin({
+    //            name: 'findmusic',
+    //            url: './html/findmusic.html',
+    //            bounces: false,
+    //            delay: 200
+    //        });
+    //    }
+
+    // 随意切换按钮
+    function randomSwitchBtn(name, index) {
+        var lis = $api.domAll('.bottom_btn');
+        var i = 0,
+            len = lis.length;
+        var curLi = lis[index];
+
+        for (i; i < len; i++) {
+            var thisLi = lis[i];
+            if (thisLi === curLi) {
+                $api.addCls(thisLi, 'activebtn');
+                $api.addCls(thisLi, 'activebtn' + index);
+                continue;
+            } else {
+                if ($api.hasCls(thisLi, 'activebtn')) {
+                    $api.removeCls(thisLi, 'activebtn');
+                    $api.removeCls(thisLi, 'activebtn' + i);
+                }
+            }
+        }
+
+        // 切换头部
+        var lis = $api.domAll('.titlebar');
+        var i = 0,
+            len = lis.length;
+        var curLi = lis[index];
+
+        for (i; i < len; i++) {
+            var thisLi = lis[i];
+            if (thisLi === curLi) {
+                $api.addCls(thisLi, 'activebar');
+                $api.addCls(thisLi, 'activebar' + index);
+
+            } else {
+                if ($api.hasCls(thisLi, 'activebar')) {
+                    $api.removeCls(thisLi, 'activebar');
+                    $api.removeCls(thisLi, 'activebar' + i);
+                }
+            }
+        }
+        $api.fixStatusBar($api.dom('.titlebar.activebar .topbar'));
+        /*适配iOS7+、Android4.4+系统状态栏，为传入的DOM元素增加适当的上内边距，避免header与状态栏重叠*/
+    }
+    // 隐藏所有的一级frame
+    function hideAllFrame() {
+        api.setFrameAttr({
+            name: 'first_frame',
+            hidden: true
+        });
+        api.setFrameAttr({
+            name: 'second_frame',
+            hidden: true
+        });
+        api.setFrameGroupAttr({
+            name: 'third_frame',
+            hidden: true
+        });
+        api.setFrameGroupAttr({
+            name: 'fourth_frame',
+            hidden: true
+        });
+        api.setFrameAttr({
+            name: 'fifth_frame',
+            hidden: true
+        });
+    }
+
+    // 自己修复ios显示frame的时候bug
+    // ios自己主动隐藏后，再open就不显示了
+    function showgroup(type) {
+        api.setFrameGroupAttr({
+            /* setFrameGroupAttr  设置 frame 组属性*/
+            name: type + 'group',
+            hidden: false
+        });
+    }
+
+    // 展示指定的frame
+    function showframe(type) {
+        api.setFrameAttr({
+            /*setFrameAttr  设置frame属性*/
+            name: type,
+            hidden: false
+        });
+    }
+/*
+
+    function setFrameGroupIndex(frameIndex) {
+        api.setFrameGroupIndex({
+            /!* setFrameGroupIndex  设置 frame 组当前可见 frame*!/
+            name: 'framegroup01',
+            index: frameIndex,
+            scroll: true            /!*是否平滑滚动至目标窗口，即是否带有动画*!/
+        });
+    }
+*/
+
+    // 打开openframeinstance，判断是否正常打开按下的当前页面
+    function openframeinstance(frame, marginTop, isBounce) {
+        api.openFrame({
+            name: frame,
+            url: './html/' + frame + '/' + frame + '_body.html',     /*没明白意思*/
+            rect: {
+                x: 0,
+                y: marginTop,
+                w: 'auto',
+                h: api.frameHeight - marginTop - footerPos.h
+            },
+            // pageParam: {name: marginTop + footerPos.h},
+            bounces: false,
+            vScrollBarEnabled: false,
+            hScrollBarEnabled: false,
+            delay: 200
+        });
+    }
+
+    // 移动滑动块
+    function sliderbarCallback(id, num) {
+        // 得到背景元素的宽度
+        // var width=parseInt(window.getComputedStyle($api.byId('matchwidth'),null).width);
+        var width = parseInt(api.frameWidth / 2);
+        // api.alert({msg:width});
+        if (num !== 0) {
+            num = width;
+        }
+        // 移动背景元素的宽度  在index.html不能获得 fifth_frame.html上面的dom，虽然是在同一个手机屏幕上
+        $api.css($api.byId(id), "-webkit-transform:translate(" + num + "px,0)");
+    }
+
+    // ===================================
+    // 响应底部按钮的切换frame
+    // ===================================
+    function switchframe(type,_index) {            //点击 按钮进入页，判断打开的是第几个主页面
+        //alert(firstHeaderOffset.h);
+        switch (type) {
+            case 'first_frame':                 /*第一个主页面   即首页*/
+                randomSwitchBtn('first_frame', 0);
+                hideAllFrame();
+                openframeinstance('first_frame', firstHeaderOffset.h, true);
+
+                if (isFirstOpen) {
+                    showgroup('first_frame');
+                }
+                else {
+                    openframeinstance('first_frame', firstHeaderOffset.h, false);          //
+                    isFirstOpen = true;
+                }
+                break;
+
+            case 'second_frame':/*第二个主页面 通讯录*/
+                randomSwitchBtn('second_frame', 1);
+                hideAllFrame();
+                openframeinstance('second_frame', firstHeaderOffset.h, true);
+                if (isSecondOpen) {
+                    showframe('second_frame');
+                }
+                else {
+                    openframeinstance('second_frame', firstHeaderOffset.h, false);
+                    isSecondOpen = true;
+                }
+
+                break;
+
+            case 'third_frame':/*第三个主页面 服务*/
+                randomSwitchBtn('third_frame', 2);
+                hideAllFrame();
+                openframeinstance('third_frame', firstHeaderOffset.h, true);
+                if (isThirdOpen) {
+                    showgroup('third_frame');
+                }
+                else {
+                    openframeinstance('third_frame', firstHeaderOffset.h, false);
+                    isThirdOpen = true;
+                }
+                break;
+            case 'fourth_frame':/*第二个主页面 通讯录*/
+                randomSwitchBtn('fourth_frame', 3);
+                hideAllFrame();
+                openframeinstance('fourth_frame', firstHeaderOffset.h, true);
+
+                if (isFourthOpen) {
+                    showframe('fourth_frame');
+                }
+                else {
+                    openframeinstance('fourth_frame', firstHeaderOffset.h, false);
+                    isFourthOpen = true;
+                }
+             break;
+
+            case 'fifth_frame':/*第五个主页面*/
+                randomSwitchBtn('fifth_frame', 4);
+                hideAllFrame();
+                openframeinstance('fifth_frame', firstHeaderOffset.h, true);
+
+                if (isFifthOpen) {
+                    showframe('fifth_frame');
+                }
+                else {
+                    openframeinstance('fifth_frame', firstHeaderOffset.h, false);
+                    isFifthOpen = true;
+                }
+           break;
+                default:
+                break;
+        }
+    }
+
+    // 打开首页初始化
+    apiready = function () {
+        //api  引擎的扩展对象，需要apiready事件之后使用
+        // 设置ios7的标题栏字体变亮，全局用一个就行了
+        api.setStatusBarStyle({
+            style: 'dark'
+        });
+
+        firstHeader = $api.byId('firstHeader');
+        secHeader = $api.byId('secHeader');
+        thirdHeader = $api.byId('thridHeader');
+        fourthHeader = $api.byId('fourthHeader');
+        fifthHeader = $api.byId('fifthHeader');
+        $api.fixStatusBar(firstHeader);
+        $api.fixStatusBar( $api.dom( '.titlebar.activebar .topbar') );
+        firstHeaderOffset = $api.offset(firstHeader);
+        var main = $api.byId('main');
+        var mainPos = $api.offset(main);
+        var footer = $api.byId('footer');
+        var footerPos = $api.offset(footer);
+
+        // 第一次进入打开 first_frame body
+        api.openFrame ({
+            name: 'first_frame',
+            url: './html/first_frame/first_frame_body.html',
+            rect:{
+                x:0,
+                y:firstHeaderOffset.h,
+                w:'auto',
+                h:api.frameHeight-firstHeaderOffset.h -footerPos.h
+            },
+            bounces: false,
+            opaque: false
+            // vScrollBarEnabled:false,
+            // hScrollBarEnabled:false
+        });
+    };
+
+    //打开登录页
+    function openUser() {
+        api.openWin({
+            name: 'window_login',
+            url: './html/fourth_frame/window_login.html'
+        })
+    }
+    function openScanner()
+    {
+        var obj = api.require('scanner');
+        obj.open(function(ret,err) {
+            api.alert({
+                title: '扫描结果',
+                msg: ret.msg
+            });
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>注册界面</title>
+    <link rel="stylesheet" href="../../css/api.css">
+    <style>
+        body,html{
+            height: 100%;
+            width:100%;
+        }
+        body{
+            background: url("../../image/login/bg.png") no-repeat;
+            background-size: 100%;
+        }
+
+        /*header样式*/
+        header{
+            display: -webkit-box;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;
+        }
+        .cancel{
+            /*background-size: 40px;*/
+            background: url("../../image/login/close_window.png") center no-repeat no-repeat;
+            background-size: 30px 30px;
+        }
+        .title{/*标题的样式*/
+            text-align: center;
+            line-height: 80px;
+            font-size: 25px;
+            -webkit-box-flex: 1;
+        }
+
+        /*content样式*/
+        .form{
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 40px 20px 0 20px; /*（上 右 下 左）*/
+            border-radius: 8px;
+            padding: 0 10px;
+            line-height: 30px;
+        }
+        .input-wrap{
+            padding: 10px 0;
+            display: -webkit-box;
+        }
+        .input-wrap:first-child{
+            border-bottom: 1px solid #d4d4d4;
+        }
+        .input-wrap input{
+            display: block;
+            -webkit-box-flex: 1;
+            background-color: rgba(255, 255, 255, 0);
+            outline: none;
+            height: 30px;
+        }
+        i{
+            /*如何解决图片失真的问题？*/
+            display: block;
+            width: 30px;
+            height: 30px;
+            /*background-size: 30px 30px;*/
+            /*background: no-repeat no-repeat;*/
+            /*background-position: center;*/
+
+        }
+        .user{
+            background: url("../../image/login/login_username.png");
+            background-size: 30px 30px;
+        }
+        .password{
+            background: url("../../image/login/logn_password.png");
+            background-size: 30px 30px;
+        }
+
+        .button{/*登陆和注册的样式*/
+            display: block;
+            color: white;
+            margin: 0 40px;
+            text-align: center;
+            border-radius: 8px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .button.orange{
+            background-color: #FF7800;
+        }
+        .footer .form{
+            -webkit-box-flex: 1;
+        }
+        #register{
+            display: block;
+            color: #ffffff;
+            margin: 0 40px;
+            text-align: center;
+            border-radius: 5px;
+            height: 40px;
+            line-height: 40px;
+            margin-top: 50%;
+            background-color: #FF7800;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="btn cancel" tapmode="" onclick="api.closeWin()"></div>
+    <div class="title">注册</div>
+    <div class="btn"></div>
+</header>
+<div class="content">
+    <div class="form">
+        <div class="input-wrap">
+            <i class="user"></i>
+            <input type="text" placeholder="用户名"  id="username" value="">
+        </div>
+
+        <div class="input-wrap">
+            <i class="password"></i>
+            <input type="text" placeholder="密码" class="txt" id="password" value="">
+        </div>
+    </div>
+
+    <footer>
+        <div class="button orange" id="register" tapmode="yellow-btn-active" onclick="register()">注册并登录</div>
+    </footer>
+</div>
+<script src="../../script/zepto.js"></script>
+<script src="../../script/api.js"></script><!--引入前端框架-->
+<script type="text/javascript">
+    apiready = function () {
+        $api.fixStatusBar($(".header"));
+        api.addEventListener({//定义一个监听事件
+            name: 'keyback'
+        }, function (ret, err) {
+            api.closeWidget();
+        });
+        $(".content").css("height", $("body").height() - $("footer").height() - $(".header").height());
+    };
+
+    function login() {//定义注册的方法
+        api.openSlidLayout({//打开侧滑布局
+            type: 'left',
+            leftEdge: api.winWidth / 6.67,
+            fixedPane: {
+                name: 'win_homeFixed',
+                url: 'win_homeFixed.html'
+            },
+            slidPane: {
+                name: 'win_homeSlider',
+                url: 'win_homeSlider.html'
+            }
+        }, function (ret) {
+
+        });
+    }
+</script>
+</body>
+</html>

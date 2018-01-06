@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scale=0,width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/api.css">
+    <script type="text/javascript" src="../../script/api.js"></script>
+    <title>第一个界面的内容框架</title>
+    <style>
+        body {
+            min-width: 320px;
+        }
+        .btn{
+            background-color: #FFFFFF;
+            width: 100%;
+            border: 1px solid #E6E6E6;
+            margin:10px 1px;
+        }
+        #location{margin-top: 0px}
+        .text span{
+            display: block;
+            font-size: 25px;
+            font-family: "Microsoft YaHei UI", sans-serif;
+            text-align: center;
+        }
+        .distance span{padding-top:15px;padding-bottom: 5px}/*第二与第三幅图文字与图片的间距*/
+
+        .content-img1{
+            height: 200px;
+            background:url("../../image/frame_1/map.png") no-repeat center;
+            background-size: 320px 200px ;
+        }
+        .content-img2{
+            background: url("../../image/frame_1/icon_energy.png") center no-repeat;
+            background-size: 320px 200px ;
+            height: 200px;
+        }
+        .content-img3{
+            background: url("../../image/frame_1/icon_info.png") center no-repeat;
+            background-size: 320px 200px ;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="location"  class="btn" onclick="openWin('line_location')" tapmode="activate"> <!--定位地理信息,line_location为存放HTML文件的地址-->
+    <div class="text">
+        <span>当前位置信息</span>
+    </div>
+    <div class="content-img1"></div>
+</div>
+<div id="energy" class="btn" onclick="display_energy()">
+    <div class="text distance">
+        <span>爱车电量显示</span>
+    </div>
+    <div class="content-img2"></div>
+</div>
+<div id="car_info" class="btn" onclick="car_info()">
+    <div class="text distance">
+        <span>爱车详细信息</span>
+    </div>
+    <div class="content-img3"></div>
+</div>
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" >
+//调用地图的方法
+   apiready = function () {
+       api.parseTapmode();
+   };
+   function openWin(name){
+       api.openWin({
+           name: ''+name+'_win',
+           url: ''+name+'_win.html',
+           bounces:false,
+           delay: 300
+       });
+   }
+</script>
+</html>

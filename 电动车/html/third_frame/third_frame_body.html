@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scale=0,width=device-width initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/api.css">
+    <title>服务部分的内容</title>
+    <style>
+        body {
+            min-width: 320px;
+        }
+        .btn{
+            background-color: #FFFFFF;
+            width: 100%;
+            border: 1px solid #E6E6E6;
+            margin:10px 1px;
+        }
+        .text span{
+            display: block;
+            font-size: 25px;
+            font-family: "Microsoft YaHei UI", sans-serif;
+            text-align: center;
+        }
+        .text strong{
+            font-size: 30px;
+            color: red;
+        }
+        .content{
+            margin-top: 20px;
+            height: 200px;
+        }
+        #tutorial{margin-top: 0px}
+        .img1{
+            background: url("../../image/frame_3/icon_service.jpg") no-repeat center;
+            background-size: 320px 250px;
+        }
+        .img2{
+            background: url("../../image/frame_3/icon_12.png") no-repeat center;
+            background-size: 320px 250px;
+        }
+
+        .category {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .category li {
+            display: inline-block;
+            width: 24%;
+            text-align: center;
+            padding: 30px 0 10px;
+            background-size: 40px;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+        .category li span {
+            margin: 15px 10px 0 10px;
+        }
+        .onlineRepair{
+            background: url("../../image/frame_3/icon_home@2x.png");
+            background-size: 80px 80px;
+        }
+        .teaching{
+            background: url("../../image/frame_3/icon_home_ship@2x.png");
+            background-size: 80px 80px;
+        }
+        .selfCheck{
+            background: url("../../image/frame_3/comment_u.png");
+            background-size: 80px 80px;
+        }
+        .gridChek{
+            background: url("../../image/frame_3/icon_home_visa@2x.png");
+            background-size: 80px 80px;
+        }
+        .stolen{
+            background: url("../../image/frame_3/takeaway_u.png");
+            background-size: 80px 80px;
+        }
+        .transfer{
+            background: url("../../image/frame_3/icon_home_self_transfer@2x.png");
+            background-size: 80px 80px;
+        }
+        .smartService{
+            background: url("../../image/frame_3/icon_home_group@2x.png");
+            background-size: 80px 80px;
+        }
+        .customerService{
+            background: url("../../image/frame_3/contact.png");
+            background-size: 80px 80px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="tutorial" class="btn" onclick="toDetail()">
+    <div class="text">
+        <span>为你的定制的豪车</span>
+    </div>
+    <div class="content img1"></div>
+</div>
+<div class="btn" onclick="toDetail()">
+    <div class="text">
+        <span>新一代智能电动车</span>
+    </div>
+    <div class="content img2"></div>
+</div>
+
+<ul class="category">
+   <li class="onlineRepair" onclick="openGroup('在线维修')" tapmode="">
+       <span>在线报修</span>
+   </li>
+    <li class="teaching" onclick="openGroup('新手教学')" tapmode="">
+        <span>新手教学</span>
+    </li>
+    <li class="selfCheck" onclick="openGroup('自检手册')" tapmode="">
+        <span>自检手册</span>
+    </li>
+    <li class="gridChek" onclick="openGroup('网点查询')" tapmode="">
+        <span>网点查询</span>
+    </li>
+    <li class="stolen" onclick="openGroup('失窃上报')" tapmode="">
+        <span>失窃上报</span>
+    </li>
+    <li class="transfer" onclick="openGroup('车辆过户')" tapmode="">
+        <span>车辆过户</span>
+    </li>
+    <li class="smartService" onclick="openGroup('智能服务')" tapmode="">
+        <span>智能服务</span>
+    </li>
+    <li class="customerService" onclick="openGroup('联系客服')" tapmode="">
+        <span>联系客服</span>
+    </li>
+</ul>
+</body>
+<script type="text/javascript">
+    function openGroup(param) {
+        api.openWin({
+            name: 'win_group',
+            url: 'win_group.html',
+            pageParam: {"name": param}
+        })
+    }
+</script>
+</html>

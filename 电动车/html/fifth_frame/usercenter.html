@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>用户中心</title>
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<style>
+html,body {min-height: 100%;background-color: #f9f9f9;}
+
+/* 头部 */
+.topbar {background: #3DA3FD; height:50px; border-bottom: 1px solid #DDDFE3;position: relative;}
+.egret-img {position: absolute;}
+.egret-img img {height: 30px;padding: 10px;vertical-align: top;}
+.egret-header-title {position: absolute;width: 100%;text-align: center;line-height: 50px;color: #fff;font-size: 20px;}/*字体样式*/
+
+</style>
+</head>
+<body>
+	<!-- 第二头部 -->
+    <div id="secHeader" class="titlebar">
+        <div class="egret-header topbar">
+            <div class="egret-header-title">用户中心</div>
+            <div  class="egret-img"><img src="../../image/cm2_icn_back.png" alt="" onclick="goback()" ></div>
+            <!-- <div  class="egret-img toRight"><img src="../../image/cm2_poplay_icn_reply.png" alt="" onclick="emptycache()" ></div> -->
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+function goback () {
+	api.closeWin({name:'usercenter'});
+}
+
+apiready = function (){
+	var header = $api.byId('secHeader');
+    $api.fixStatusBar(header);              //固定导航条的位置
+    var headerPos = $api.offset(header);
+	api.openFrame({             //调用打开窗口的方法
+		name: 'usercenter_body',
+		url: './usercenter_body.html',
+		bounces: false,
+		opaque: false,
+		rect: {
+			x: 0,
+			y: headerPos.h,
+			w: 'auto',
+			h: 'auto'
+		}
+	
+	});
+};
+</script>
+</html>

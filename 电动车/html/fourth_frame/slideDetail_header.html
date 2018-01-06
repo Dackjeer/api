@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+        <title>轮播图图片后面的界面头部</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <style>
+        header {
+            border-bottom: 1px solid #E5E5E5;
+        }
+       .header{
+           display: -webkit-box;
+           -webkit-box-pack: center;
+           -webkit-box-align: center; 
+       }
+       .header .btn {
+           /*display: block;*/
+           background-size: 30px;
+           background: no-repeat center;
+           /*background-position: center;*/
+       }
+       .btn img{
+           display: block/*解决div 与img 的间距*/
+       }
+       .title {
+           -webkit-box-flex: 1;
+           text-align: center;
+           font-size: 20px;
+       }
+    </style>
+</head>
+<body>
+<header>
+    <div class="user header ">
+        <div class="btn" tapmode="" onclick="api.closeWin()">
+            <img src="../../image/frame_4/arrow_grey_left_pressed.png" alt="">
+        </div>
+
+        <div class="title"></div>
+        <div class="btn"></div>
+    </div>
+</header>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script>
+    apiready = function (api) {
+        $api.fixStatusBar($api.dom( ".header" ));
+        $(".title").html(api.pageParam.name);
+        api.openFrame({
+            name: "slideDetail_body",
+            url: 'slideDetail_body.html',
+            rect: {
+                x: 0,
+                y: $("header").height(),
+                h: 'auto',
+                w: 'auto'
+            }
+        })
+    }
+</script>
+</body>
+</html>

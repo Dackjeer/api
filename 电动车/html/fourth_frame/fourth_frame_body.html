@@ -1,0 +1,178 @@
+<!--商城内容部分-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+<title>商城内容部分</title>
+<link rel="stylesheet" href="../../css/api.css">
+<style>
+        /*轮播图样式*/
+        .swipe {  overflow: hidden; /*visibility: hidden;*/  position: relative;  }
+        .swipe-wrap {  overflow: hidden;  position: relative;  height: 130px  }
+        .swipe-wrap > div {  float: left;  width: 100%;  position: relative;  } /*使用子代选择器*/
+        .swipe-wrap > div {  overflow: hidden;  position: relative;  }
+        .swipe-wrap img {  width: 100%;  height: auto;  max-height: 240px;  min-height: 132px;  min-width: 320px;  max-width: 640px;}
+        #slide {  margin: 0 auto;  position: relative;  }
+
+        /*点的样式*/
+        #title-box {position: absolute;  bottom: 12px;  overflow: hidden;  width: 100%;  text-align: center;  }
+        #title-box li {display: inline-block;  width: 6px;  height: 6px;  border-radius: 6px;  margin-right: 4px;  background-color: #FFFFFF;  }
+        .active li {background-color: #000000;}
+
+    /*图片区*/
+        .btn{
+            background-color: #FFFFFF;
+            width: 100%;
+            border: 1px solid #E6E6E6;
+            margin:10px 1px;
+        }
+        .text span{
+            display: block;
+            font-size: 25px;
+            font-family: "Microsoft YaHei UI", sans-serif;
+            text-align: center;
+        }
+        .text strong{
+            font-size: 30px;
+            color: red;
+        }
+        .content{
+            margin-top: 20px;
+            height: 200px;
+        }
+        /*#shop{margin-top: 0px}*/
+        .img1{
+            background: url("../../image/frame_4/icon_6.jpg") no-repeat center;
+            background-size: 320px 200px;
+        }
+        .img2{
+            background: url("../../image/frame_4/icon_18.png") no-repeat center;
+            background-size: 320px 200px;
+        }
+        .img3{
+            background: url("../../image/frame_4/icon_4.jpg") no-repeat center;
+            background-size: 180px 180px;
+        }
+        .img4{
+            background: url("../../image/frame_4/icon_1.png") no-repeat center;
+            background-size: 180px 180px;
+        }
+        .img5{
+            background: url("../../image/frame_4/icon_31.png") no-repeat center;
+            background-size: 320px 160px;
+        }
+</style>
+</head>
+
+<body>
+        <!--轮播图-->
+        <div id='slide' class='swipe'>
+            <div class='swipe-wrap' id="banner-content">
+                 <div class="swipe-box" onclick="openSlider('pride汽车')" tapmode="tap-active">
+                     <img src="../../image/frame_4/4.png"/>
+                 </div>
+                <div class="swipe-box" onclick="openSlider('pride汽车')" tapmode="">
+                    <img src="../../image/frame_4/1.png"/>
+                </div>
+                <div class="swipe-box" onclick="openSlider('pride汽车')" tapmode="">
+                    <img src="../../image/frame_4/2.png"/>
+                </div>
+                <div class="swipe-box" onclick="openSlider('pride汽车')" tapmode="">
+                    <img src="../../image/frame_4/3.png"/>
+                </div>
+                <div class="swipe-box" onclick="openSlider('pride汽车')" tapmode="">
+                    <img src="../../image/frame_4/4.png"/>
+                </div>
+                 <div class="swipe-box" onclick="openSlider('pride汽车')" tapmode="">
+                     <img src="../../image/frame_4/1.png"/>
+                 </div>
+            </div>
+            <div id="title-box">
+                <ul id="title-box-ul">
+                    <li class="active"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="shop" class="btn" onclick="toDetail()">
+                <div class="content img1"></div>
+                <div class="text">
+                    <span>官方商城 配件上新</span>
+                    <span>满<strong>399</strong>元免运费</span>
+                </div>
+            </div>
+
+            <div id="tutorial" class="btn" onclick="toDetail()">
+                <div class="content img2"></div>
+                <div class="text">
+                    <span>了解pride电动车教程</span>
+                </div>
+            </div>
+
+            <div  class="btn" onclick="toDetail()">
+                <div class="content img3"></div>
+                <div class="text">
+                    <span>买车送各种优惠大礼包</span>
+                </div>
+            </div>
+
+            <div  class="btn" onclick="toDetail()">
+                <div class="content img4"></div>
+                <div class="text">
+                    <span>轻便快捷的居家小车</span>
+                </div>
+            </div>
+
+            <div  class="btn" onclick="toDetail()">
+                <div class="content img5"></div>
+                <div class="text">
+                    <span>全新的科技 <br>pride系列产品详情</span>
+                </div>
+            </div>
+
+</div>
+
+<script type="text/javascript" src="../../script/zepto.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/swiper.js"></script>
+<script type="text/javascript">
+    apiready = function () {
+        var scrollPicture = api.require('scrollPicture')
+            , imgsArr = ['widget://image/frame_4/1.png', 'widget://image/frame_4/2.png', 'widget://image/frame_4/3.png'
+            , 'widget://image/frame_4/4.png'];
+        scrollPicture.open({
+            x: 0,
+            y: 0,
+            w: api.winWidth,
+            h: 130,
+            intervalTime: 10, /*自动间隔时间，跳转*/
+            placeholderImg: 'widget://image/default.png',
+            paths: imgsArr,
+            control: {
+                activeColor: '#000000', /*活动圆点的颜色*/
+                inactiveColor: '#9B9B9B'/*当前状态圆点的颜色*/
+            },
+            fixed: false,
+            fixedOn: 'fourth_frame'
+        }, function (ret, err) {
+            if (ret.status) {
+                openSlider('pride汽车');
+            } else {
+            }
+        });
+    };
+    function openSlider(param) {    /*轮播图点击进入的内容*/
+        api.openWin({
+            name: 'sliderDetail_header',
+            url: './html/fourth_frame/slideDetail_header.html',
+            pageParam: {"name": param}
+        })
+    }
+</script>
+</body>
+</html>

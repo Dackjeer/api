@@ -1,0 +1,37 @@
+
+#header .header-content{/*父容器*/
+    position: relative;
+    width: 100%;
+    height: 48px;
+    background: #FEFEFE;
+    /*background: red;*/
+}
+#header .header-btn{/*基本样式*/
+    width: 56px;
+    height: 48px;
+}
+
+.header-btn.back{
+    background-size: 24px 24px;
+    float: left;
+}
+.header-btn.back image{background: center center no-repeat}
+.header-btn.menu{
+    background: red;
+    height: 48px;
+    width: 100%;
+}
+.header-btn.menu i{font-size:30px;text-align: center;height: 48px}
+
+.header-btn.cart{
+    background-size: 24px 24px;
+    float: right;
+}
+.header-btn.cart image{background: center center no-repeat}
+
+.header-btn.user{
+    background-size: 24px 24px;
+    float: right;
+}
+.header-btn.user image{background: center center no-repeat}
+

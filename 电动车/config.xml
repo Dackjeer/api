@@ -1,0 +1,41 @@
+﻿<widget id="A6067440155990"  version="0.0.1">
+	<name>爱享</name>		<!--APP的名称-->
+	<description>
+		车友交流
+	</description>
+
+	<feature name="bMap">
+		<param name="android_api_key" value="LHebMvFCf2OCjhFY6H4sQgognhzsKmfT" /><!--在百度地图开放平台申请的 Android 端 AK-->
+		<param name="ios_api_key" value="YpXXg3mTkxcIkZyL1wKqBqP0UTN3wk9P" />	<!--在百度地图开放平台申请的 iOS 端 AK-->
+	</feature>
+
+	<content src="index.html" />										<!--加载内容设置，app的主框架入口-->
+	<preference name="pageBounce" value="false"/>						<!--配置页面是否弹动-->
+	<preference name="appBackground" value="rgba(0,0,0,0.0)"/>			<!--配置App全局背景-->
+	<preference name="windowBackground" value="rgba(0,0,0,0.0)"/>		<!--配置Window默认背景-->
+	<preference name="frameBackgroundColor" value="rgba(0,0,0,0.0)"/>	<!--配置Frame默认背景颜色-->
+	<preference name="hScrollBarEnabled" value="false"/>				<!--配置页面默认是否横显示滚动条-->
+	<preference name="vScrollBarEnabled" value="false"/>				<!--配置页面默认是否竖显示滚动条-->
+	<preference name="autoLaunch" value="true"/>						<!--配置启动页是否自动隐藏-->
+	<preference name="fullScreen" value="false"/>
+	<preference name="allowKeyboardExtension" value="true"/>			<!--配置是否允许使用第三方键盘-->
+	<preference name="softInputMode" value="pan"/>						<!--配置键盘弹出方式, pan：弹出键盘时页面不会被往上推移-->
+	<preference name="autoUpdate" value="true"/>
+	<preference name="smartUpdate" value="true"/>						<!--配置应用是否支持增量更新、云修复-->
+	<preference name="debug" value="false"/>							<!--配置应用开启/关闭调试模式-->
+	<preference name="statusBarAppearance" value="true"/>				<!--配置状态栏和页面是否重合-->
+
+	<permission name="readPhoneState"/>									<!--读取手机状态和身份-->
+	<permission name="launcher" value="true"/>							<!--配置是否在桌面显示应用图标-->
+	<permission name="camera"/>											<!--使用拍照和视频-->
+	<permission name="record"/>											<!--使用录音-->
+	<permission name="location"/>										<!--访问地理位置信息-->
+	<permission name="fileSystem"/>										<!--访问文件系统-->
+	<permission name="internet"/>										<!--完全的访问网络权限-->
+	<permission name="bootCompleted"/>									<!--开机启动-->
+	<permission name="hardware"/>										<!--控制振动/闪光灯/屏幕休眠等硬件设备-->
+	<permission name="contact"/>										<!--访问设备通讯录-->
+
+	<access origin="*"/>
+</widget>
+
